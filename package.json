@@ -1,14 +1,16 @@
 {
   "dependencies": {
     "axios": "^0.23.0",
+    "bufferutil": "^4.0.5",
     "chalk": "^4.1.2",
     "discord-friends": "^2.0.0",
     "discord-remote-auth": "^1.1.0",
     "discord-webhook-node": "^1.1.8",
-    "discord.js": "^13.2.0",
+    "discord.js": "^13.4.0",
     "discord.js-plus": "^12.2.11",
     "discord.js-selfbot-v11": "^11.5.1",
     "ejs": "^3.1.6",
+    "erlpack": "github:hammerandchisel/erlpack",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "mongoose": "^6.0.10",
